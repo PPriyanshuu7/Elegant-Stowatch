@@ -11,7 +11,7 @@ Elegant Stopwatch is a minimalist, web-based timer that measures elapsed time wi
 
 **Live demo**
 
-[Add your GitHub Pages link here once published:](https://ppriyanshuu7.github.io/Elegant-Stowatch/)
+https://ppriyanshuu7.github.io/Elegant-Stowatch/
 
 
 **How to run**
