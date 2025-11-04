@@ -6,7 +6,7 @@ let isRunning = false;
 function start() {
   if (!isRunning) {
     startTime = Date.now() - elapsedTime;      
-    timer = setInterval(update, 10);           
+    timer = setInterval(update, 16);  // Changed from 10ms to 16ms (smoother)
     isRunning = true;
   }
 }
@@ -27,8 +27,6 @@ function reset() {
   startTime = 0;
   elapsedTime = 0;
   document.getElementById("display").textContent = "00:00:000";
-  
-  // Reset pointer to 0 degrees
   document.getElementById("pointerGroup").setAttribute("transform", "rotate(0 150 150)");
 }
 
@@ -36,10 +34,6 @@ function update() {
   const now = Date.now();
   const ms = now - startTime;
 
-  // Update elapsed time
-  elapsedTime = ms;
-
-  // Format time display
   const minutes = Math.floor(ms / 60000);
   const seconds = Math.floor((ms % 60000) / 1000);
   const millis  = ms % 1000;
@@ -51,8 +45,6 @@ function update() {
 
   document.getElementById("display").textContent = text;
 
-  // Update circular pointer rotation
-  // Complete one full rotation (360 degrees) every 60 seconds (60000 ms)
   const rotation = (ms % 60000) / 60000 * 360;
   document.getElementById("pointerGroup").setAttribute(
     "transform", 
